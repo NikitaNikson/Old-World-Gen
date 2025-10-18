@@ -99,26 +99,29 @@ public class BiomeBeta extends BiomeGenBase
 				return new OldGenTrees(2);
 			}
 		}	
-    } 
+    }
 
-    @SideOnly(Side.CLIENT)
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
-    {
+	@SideOnly(Side.CLIENT)
+	public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+	{
+		// taiga & tundra
 		if( id == 6 || id == 9 )
 		{
 			return ColorizerGrass.getGrassColor(0.6F, 0.6F);
 		}
+		// desert
 		else if( id == 7 )
 		{
-			return ColorizerFoliage.getFoliageColor(0.8F, 0.2F);
+			return ColorizerGrass.getGrassColor(0.9F, 0.1F); // Also changed this line
 		}
 		else
 		{
-			double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_), 0.0F, 1.0F); 
-			double d1 = MathHelper.clamp_float(getFloatRainfall(), 0.0F, 1.0F);
+			double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_) + 0.3F, 0.0F, 1.0F);
+			double d1 = MathHelper.clamp_float(getFloatRainfall() + 0.1F, 0.0F, 1.0F);
+			// temperature & rainfall
 			return ColorizerGrass.getGrassColor(d, d1);
 		}
-    }
+	}
 
     @SideOnly(Side.CLIENT)
     public int getBiomeFoliageColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
