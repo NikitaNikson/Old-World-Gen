@@ -1,0 +1,52 @@
+generator.OWG=Old World Generator
+
+gui.title=Настройки генератора
+gui.selectGenerator=Выберите генератор мира:
+gui.generatorSettings=Настройки генератора:
+gui.serverConfig=Конфигурация сервера:
+gui.copystring=Скопировать настройки генератора в буфер
+
+owg.setting.size=Размер
+owg.setting.small=Маленький
+owg.setting.default=Обычный
+owg.setting.large=Большой
+owg.setting.snow=Снежный мир
+owg.setting.water=Вода
+owg.setting.on=Вкл.
+owg.setting.off=Откл.
+owg.setting.theme=Тема
+owg.setting.type=Тип
+owg.setting.layer=Слой
+owg.setting.dungeon=Подземелья
+owg.setting.cave=Пещеры
+owg.setting.stronghold=Крепости
+owg.setting.village=Деревни
+owg.setting.mineshaft=Шахты
+owg.setting.temple=Храмы
+owg.setting.ravine=Овраги
+owg.setting.ocean=Глубокий океан
+owg.setting.monument=Океанские Памятники
+owg.setting.end=Только портал края
+
+owg.biomes.biomes=Биомы
+owg.biomes.original=оригинальный
+owg.biomes.vanilla=ванильный
+owg.biomes.all=ванильный + моды
+
+owg.theme.default=Обычная
+owg.theme.snow=Снежная
+owg.theme.jungle=Джунгли
+owg.theme.tropical=Тропическая
+owg.theme.paradise=Райская
+owg.theme.hell=Адская
+owg.theme.woods=Лесная
+
+owg.type.island=Остров
+owg.type.floating=Летающий
+owg.type.inland=Остров
+
+owg.BETA173=Бета 1.7.3
+owg.ALPHA12=Альфа 1.2.0
+owg.ALPHA11=Альфа 1.1.0
+owg.INFDEV=Инфдев
+owg.INDEV=Индев

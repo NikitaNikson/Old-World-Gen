@@ -1,0 +1,16 @@
+[
+{
+  "modid": "OWG_by_bashyone",
+  "name": "Old World Generation 2.0",
+  "description": "Custom OWG fork featuring new tweaks and fixes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ted80, bashyone"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
