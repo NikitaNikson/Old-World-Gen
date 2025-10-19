@@ -132,12 +132,12 @@ public class BiomeBeta extends BiomeGenBase
 		}
 		else if( id == 7 )
 		{
-			return ColorizerFoliage.getFoliageColor(0.8F, 0.2F);
+			return ColorizerFoliage.getFoliageColor(0.9F, 0.1F);
 		}
 		else
 		{
-			double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_), 0.0F, 1.0F);
-			double d1 = MathHelper.clamp_float(getFloatRainfall(), 0.0F, 1.0F);
+			double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_) + 0.3F, 0.0F, 1.0F);
+			double d1 = MathHelper.clamp_float(getFloatRainfall() + 0.1F, 0.0F, 1.0F);
 			return ColorizerFoliage.getFoliageColor(d, d1);
 		}
     }    
