@@ -120,9 +120,9 @@ public class GuiGeneratorSettings extends GuiScreen
     		drawString(fontRendererObj, translatedDrawStrings[1], width / 2 + 6, 40, 10526880);
     	}
     	
-    	drawString(fontRendererObj, "Server config: ", width / 2 - 155 + 1, 165, 16777215);
-    	drawString(fontRendererObj, "level-type=OWG", width / 2 - 155 + 1, 182, 10526880);
-    	drawString(fontRendererObj, "generator-settings=" + createString(), width / 2 - 155 + 1, 192, 10526880);
+    	drawString(fontRendererObj, "Server config: ", width / 2 - 155 + 1, 175, 16777215);
+    	drawString(fontRendererObj, "level-type=OWG", width / 2 - 155 + 1, 192, 10526880);
+    	drawString(fontRendererObj, "generator-settings=" + createString(), width / 2 - 155 + 1, 202, 10526880);
 		
 		super.drawScreen(par1, par2, par3);
 	}
