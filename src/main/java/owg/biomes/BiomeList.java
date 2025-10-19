@@ -4,6 +4,8 @@ import owg.config.ConfigOWG;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraft.world.gen.structure.MapGenVillage;
 
 public class BiomeList 
 {
@@ -50,5 +52,13 @@ public class BiomeList
 		
 		BiomeDictionary.registerBiomeType(CLASSICnormal, Type.HOT, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(CLASSICsnow, Type.COLD, Type.SNOWY);
+
+		BiomeManager.addVillageBiome(OLDplains, true);
+		BiomeManager.addVillageBiome(OLDsavanna, true);
+		BiomeManager.addVillageBiome(OLDdesert, true);
+		BiomeManager.addVillageBiome(OLDshrubland, true);
+		BiomeManager.addVillageBiome(OLDforest, true);
+		BiomeManager.addVillageBiome(OLDseasonalForest, true);
+		BiomeManager.addVillageBiome(OLDrainforest, true);
 	}
 }

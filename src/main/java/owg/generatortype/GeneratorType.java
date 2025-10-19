@@ -19,8 +19,9 @@ public class GeneratorType
 	public static long seed;
 	public static String genString;
 	
-	public static final GeneratorType[] generatortypes = new GeneratorType[5];
+	public static final GeneratorType[] generatortypes = new GeneratorType[6];
 	public static final GeneratorType BETA173 = new GeneratorTypeBeta(0, 0, "BETA173", true);
+	public static final GeneratorType BETA15 = new GeneratorTypeBeta15(5, 0, "BETA15", true);
 	public static final GeneratorType ALPHA12 = new GeneratorTypeAlpha12(1, 0, "ALPHA12", true);
 	public static final GeneratorType ALPHA11 = new GeneratorTypeAlpha11(2, 0, "ALPHA11", true);
 	public static final GeneratorType INFDEV = new GeneratorTypeInfdev(3, 0, "INFDEV", true);
