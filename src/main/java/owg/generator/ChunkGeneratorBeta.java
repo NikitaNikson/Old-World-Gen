@@ -45,6 +45,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraft.world.gen.structure.MapGenVillage;
 
 public class ChunkGeneratorBeta implements IChunkProvider
 {
@@ -70,6 +71,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
     private MapGenOLD field_902_u;
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
+    private MapGenVillage villageGenerator = new MapGenVillage();
     private BiomeGenBase biomesForGeneration[];
 	private int biomeSettings;
 	private Block[] tempBlocks;
@@ -348,6 +350,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
         {
 			strongholdGenerator.func_151539_a(this, worldObj, i, j, blocks);
 			mineshaftGenerator.func_151539_a(this, worldObj, i, j, blocks);
+            villageGenerator.func_151539_a(this, worldObj, i, j, blocks);
 		}	
 		
         Chunk chunk = new Chunk(worldObj, blocks, metadata, i, j);
@@ -503,6 +506,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
 			{
 				strongholdGenerator.generateStructuresInChunk(worldObj, rand2, i, j);
 				mineshaftGenerator.generateStructuresInChunk(worldObj, rand2, i, j);
+                villageGenerator.generateStructuresInChunk(worldObj, rand2, i, j);
 			}
 			
 			if(rand.nextInt(4) == 0)
@@ -949,6 +953,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
         {
 			strongholdGenerator.func_151539_a(this, worldObj, par1, par2, (Block[])null);
 			mineshaftGenerator.func_151539_a(this, worldObj, par1, par2, (Block[])null);
+            villageGenerator.func_151539_a(this, worldObj, par1, par2, (Block[])null);
 		}	
 	}
 }
