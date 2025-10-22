@@ -38,6 +38,7 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraft.world.gen.structure.MapGenVillage;
 
 public class ChunkGeneratorAlpha implements IChunkProvider
 {
@@ -61,6 +62,7 @@ public class ChunkGeneratorAlpha implements IChunkProvider
     private MapGenOLD field_902_u;
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
+    private MapGenVillage villageGenerator = new MapGenVillage();
     private BiomeGenBase field_4179_v[];
 	private int biomeSettings;
 	
@@ -284,6 +286,7 @@ public class ChunkGeneratorAlpha implements IChunkProvider
         {
 			strongholdGenerator.func_151539_a(this, worldObj_16, i, j, blocks);
 			mineshaftGenerator.func_151539_a(this, worldObj_16, i, j, blocks);
+            villageGenerator.func_151539_a(this, worldObj_16, i, j, blocks);
 		}	
 		
         Chunk chunk = new Chunk(worldObj_16, blocks, i, j);
@@ -428,6 +431,7 @@ public class ChunkGeneratorAlpha implements IChunkProvider
         {
 			strongholdGenerator.generateStructuresInChunk(worldObj_16, rand2, i, j);
 			mineshaftGenerator.generateStructuresInChunk(worldObj_16, rand2, i, j);
+            villageGenerator.generateStructuresInChunk(worldObj_16, rand2, i, j);
 		}	
 		
 		if(field_913_j.nextInt(4) == 0)
@@ -717,6 +721,7 @@ public class ChunkGeneratorAlpha implements IChunkProvider
         {
 			strongholdGenerator.func_151539_a(this, worldObj_16, par1, par2, (Block[])null);
 			mineshaftGenerator.func_151539_a(this, worldObj_16, par1, par2, (Block[])null);
+            villageGenerator.func_151539_a(this, worldObj_16, par1, par2, (Block[])null);
 		}	
 	}
 
