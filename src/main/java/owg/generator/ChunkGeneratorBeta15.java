@@ -218,7 +218,7 @@ public class ChunkGeneratorBeta15 implements IChunkProvider
                         }
                         else
                         {
-                            tempBlocks[m] = Blocks.air;
+                            tempBlocks[(l * 16 + k) * 256 + m] = Blocks.air; // bashyone: fixed
                         }
                         tempMetadata[(l * 16 + k) * 256 + m] = 0;
                     }
@@ -367,7 +367,7 @@ public class ChunkGeneratorBeta15 implements IChunkProvider
         {
             for (int k = 0; k < abyte1.length; k++)
             {
-                abyte1[k] = (byte)biomesForGeneration[(int)(((k * 16) & 0xff) + (int)(k / 16))].biomeID;
+                abyte1[k] = (byte)biomesForGeneration[k].biomeID;
             }
         }
 

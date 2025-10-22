@@ -179,9 +179,9 @@ public class ManagerOWG extends WorldChunkManager
     public static int[] getBiomesGens(int par1, int par2, int par3, int par4)
     {		
 		int[] abiomegenbase = new int[par3 * par4];
-		temperature = field_4194_e.func_4112_a(temperature, par1, par2, par3, par3, 0.02500000037252903D, 0.02500000037252903D, 0.25D);
-		humidity = field_4193_f.func_4112_a(humidity, par1, par2, par3, par3, 0.05000000074505806D, 0.05000000074505806D, 0.33333333333333331D);
-		field_4196_c = field_4192_g.func_4112_a(field_4196_c, par1, par2, par3, par3, 0.25D, 0.25D, 0.58823529411764708D);
+		temperature = field_4194_e.func_4112_a(temperature, par1, par2, par3, par4, 0.02500000037252903D, 0.02500000037252903D, 0.25D);
+		humidity    = field_4193_f.func_4112_a(humidity,    par1, par2, par3, par4, 0.05000000074505806D, 0.05000000074505806D, 0.33333333333333331D);
+		field_4196_c = field_4192_g.func_4112_a(field_4196_c, par1, par2, par3, par4, 0.25D, 0.25D, 0.58823529411764708D);
 		int i1 = 0;
 		for(int j1 = 0; j1 < par3; j1++)
 		{
