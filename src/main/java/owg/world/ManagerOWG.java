@@ -232,7 +232,7 @@ public class ManagerOWG extends WorldChunkManager
 					offY = perlin.noise2((par1 + j11 + 1000) / 30F, (par2 + k11) / 30F) * 80 + perlin.noise2((par1 + j11 - 1000) / 7F, (par2 + k11) / 7F) * 20;
 					c = (biomecell.noise((par1 + j11 + offX + 1000) / 1000D, (par2 + k11 - offY) / 1000D, 1D) * 0.5f) + 0.5f;
 					
-					if(isSmallEnabled && (biomecell.noise(par1 / 140D, par2 / 140D, 1D) * 0.5f) + 0.5f > 0.95f)
+					if(isSmallEnabled && (biomecell.noise((par1 + j11) / 140D, (par2 + k11) / 140D, 1D) * 0.5f) + 0.5f > 0.95f)
 					{
 						h = (biomecell.noise((par1 + j11 + offX + 2000) / 180D, (par2 + k11 - offY) / 180D, 1D) * 0.5f) + 0.5f;
 						h = h < 0f ? 0f : h >= 0.9999999f ? 0.9999999f : h;

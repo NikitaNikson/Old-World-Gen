@@ -329,6 +329,29 @@ public class ChunkGeneratorBeta implements IChunkProvider
         }
     }
 
+    private void polishSurface(Block[] blocks, BiomeGenBase[] biomes) {
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                int col = (z * 16 + x) * 128;
+                int y;
+                for (y = 127; y >= 0; y--) {
+                    Block b = blocks[col + y];
+                    if (b != Blocks.air) break;
+                }
+                if (y <= 0) continue;
+                Block top = blocks[col + y];
+                if (top == Blocks.stone) {
+                    BiomeGenBase b = biomes[z * 16 + x];
+                    Block tb = b.topBlock;
+                    Block fb = b.fillerBlock;
+                    blocks[col + y] = tb;
+                    if (y - 1 >= 0) blocks[col + y - 1] = fb;
+                    if (y - 2 >= 0) blocks[col + y - 2] = fb;
+                }
+            }
+        }
+    }
+
     public Chunk loadChunk(int par1, int par2)
     {
         return provideChunk(par1, par2);
@@ -343,7 +366,8 @@ public class ChunkGeneratorBeta implements IChunkProvider
         double ad[] = ManagerOWG.temperature;
         generateTerrain(i, j, blocks, biomesForGeneration, ad);
         replaceBlocksForBiome(i, j, blocks, metadata, biomesForGeneration);
-        
+        polishSurface(blocks, biomesForGeneration);
+
         field_902_u.generate(this, worldObj, i, j, blocks);
 		
         if (mapFeaturesEnabled)
