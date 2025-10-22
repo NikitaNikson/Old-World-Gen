@@ -56,9 +56,9 @@ public class BiomeList
 		BiomeManager.addVillageBiome(OLDplains, true);
 		BiomeManager.addVillageBiome(OLDsavanna, true);
 		BiomeManager.addVillageBiome(OLDdesert, true);
-		BiomeManager.addVillageBiome(OLDshrubland, true);
-		BiomeManager.addVillageBiome(OLDforest, true);
-		BiomeManager.addVillageBiome(OLDseasonalForest, true);
-		BiomeManager.addVillageBiome(OLDrainforest, true);
+		// BiomeManager.addVillageBiome(OLDshrubland, true);
+		// BiomeManager.addVillageBiome(OLDforest, true);
+		// BiomeManager.addVillageBiome(OLDseasonalForest, true);
+		// BiomeManager.addVillageBiome(OLDrainforest, true);
 	}
 }
