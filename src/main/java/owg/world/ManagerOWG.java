@@ -462,10 +462,31 @@ public class ManagerOWG extends WorldChunkManager
         }
     }
 
-    public boolean areBiomesViable(int par1, int par2, int par3, List par4List)
-    {
-    	return false;
-    }
+	@Override
+	public boolean areBiomesViable(int par1, int par2, int par3, List par4List)
+	{
+		int i = par1 - par3 >> 2;
+		int j = par2 - par3 >> 2;
+		int k = par1 + par3 >> 2;
+		int l = par2 + par3 >> 2;
+
+		int i1 = k - i + 1;
+		int j1 = l - j + 1;
+
+		BiomeGenBase[] abiomegenbase = this.getBiomesForGeneration((BiomeGenBase[])null, i, j, i1, j1);
+
+		for (int k1 = 0; k1 < i1 * j1; ++k1)
+		{
+			BiomeGenBase biomegenbase = abiomegenbase[k1];
+
+			if (!par4List.contains(biomegenbase))
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
 
     public ChunkPosition findBiomePosition(int p_150795_1_, int p_150795_2_, int p_150795_3_, List p_150795_4_, Random p_150795_5_)
     {
