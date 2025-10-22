@@ -87,57 +87,70 @@ public class DecoSkyDungeon extends WorldGenerator
 				}
 			}
 		}
-		
+
 		//Chests and Spawners
 		if(isEndDungeon)
 		{
-			par1World.setBlock(par3 + 2, par4 + 1, par5 - 1, Blocks.end_portal_frame, 1 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 + 2, par4 + 1, par5 + 0, Blocks.end_portal_frame, 1 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 + 2, par4 + 1, par5 + 1, Blocks.end_portal_frame, 1 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			
-			par1World.setBlock(par3 - 1, par4 + 1, par5 + 2, Blocks.end_portal_frame, 2 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 + 0, par4 + 1, par5 + 2, Blocks.end_portal_frame, 2 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 + 1, par4 + 1, par5 + 2, Blocks.end_portal_frame, 2 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			
-			par1World.setBlock(par3 - 2, par4 + 1, par5 - 1, Blocks.end_portal_frame, 3 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 - 2, par4 + 1, par5 + 0, Blocks.end_portal_frame, 3 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 - 2, par4 + 1, par5 + 1, Blocks.end_portal_frame, 3 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			
-			par1World.setBlock(par3 - 1, par4 + 1, par5 - 2, Blocks.end_portal_frame, 0 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 + 0, par4 + 1, par5 - 2, Blocks.end_portal_frame, 0 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
-			par1World.setBlock(par3 + 1, par4 + 1, par5 - 2, Blocks.end_portal_frame, 0 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 0);
+			par1World.setBlock(par3 + 2, par4 + 1, par5 - 1, Blocks.end_portal_frame, 1 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 + 2, par4 + 1, par5 + 0, Blocks.end_portal_frame, 1 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 + 2, par4 + 1, par5 + 1, Blocks.end_portal_frame, 1 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
 
-			par1World.setBlock(par3, par4 + 6, par5, Blocks.mob_spawner);
+			par1World.setBlock(par3 - 1, par4 + 1, par5 + 2, Blocks.end_portal_frame, 2 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 + 0, par4 + 1, par5 + 2, Blocks.end_portal_frame, 2 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 + 1, par4 + 1, par5 + 2, Blocks.end_portal_frame, 2 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+
+			par1World.setBlock(par3 - 2, par4 + 1, par5 - 1, Blocks.end_portal_frame, 3 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 - 2, par4 + 1, par5 + 0, Blocks.end_portal_frame, 3 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 - 2, par4 + 1, par5 + 1, Blocks.end_portal_frame, 3 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+
+			par1World.setBlock(par3 - 1, par4 + 1, par5 - 2, Blocks.end_portal_frame, 0 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 + 0, par4 + 1, par5 - 2, Blocks.end_portal_frame, 0 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+			par1World.setBlock(par3 + 1, par4 + 1, par5 - 2, Blocks.end_portal_frame, 0 + (par2Random.nextFloat() > 0.9F ? 4 : 0), 2);
+
+			par1World.setBlock(par3, par4 + 6, par5, Blocks.mob_spawner, 0, 2);
 			TileEntityMobSpawner spawn3 = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4 + 6, par5);
-			if (spawn3 != null) { spawn3.func_145881_a().setEntityName(pickMobSpawner(par2Random)); }
+			if (spawn3 != null) {
+				spawn3.func_145881_a().setEntityName(pickMobSpawner(par2Random));
+			}
 		}
 		else
 		{
-			par1World.setBlock(par3, par4 + 1, par5, Blocks.mob_spawner);
-			par1World.setBlock(par3, par4 + 3, par5, Blocks.mob_spawner);
-			par1World.setBlock(par3, par4 + 6, par5, Blocks.mob_spawner);
+			par1World.setBlock(par3, par4 + 1, par5, Blocks.mob_spawner, 0, 2);
 			TileEntityMobSpawner spawn1 = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4 + 1, par5);
-			TileEntityMobSpawner spawn2 = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4 + 3, par5);
-			TileEntityMobSpawner spawn3 = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4 + 6, par5);
-			if (spawn1 != null) { spawn1.func_145881_a().setEntityName(pickMobSpawner(par2Random)); }
-			if (spawn2 != null) { spawn2.func_145881_a().setEntityName(pickMobSpawner(par2Random)); }
-			if (spawn3 != null) { spawn3.func_145881_a().setEntityName(pickMobSpawner(par2Random)); }
-			
-			par1World.setBlock(par3, par4 + 2, par5, Blocks.chest);
-			TileEntityChest var16 = (TileEntityChest)par1World.getTileEntity(par3, par4 + 2, par5);
-			
-			for (int var17 = 0; var17 < 14; ++var17)
-			{
-				ItemStack var18 = this.pickCheckLootItem(par2Random);
+			if (spawn1 != null) {
+				spawn1.func_145881_a().setEntityName(pickMobSpawner(par2Random));
+			}
 
-				if (var18 != null)
+			par1World.setBlock(par3, par4 + 3, par5, Blocks.mob_spawner, 0, 2);
+			TileEntityMobSpawner spawn2 = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4 + 3, par5);
+			if (spawn2 != null) {
+				spawn2.func_145881_a().setEntityName(pickMobSpawner(par2Random));
+			}
+
+			par1World.setBlock(par3, par4 + 6, par5, Blocks.mob_spawner, 0, 2);
+			TileEntityMobSpawner spawn3 = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4 + 6, par5);
+			if (spawn3 != null) {
+				spawn3.func_145881_a().setEntityName(pickMobSpawner(par2Random));
+			}
+
+			par1World.setBlock(par3, par4 + 2, par5, Blocks.chest, 0, 2);
+			TileEntityChest var16 = (TileEntityChest)par1World.getTileEntity(par3, par4 + 2, par5);
+
+			if (var16 != null) {
+				for (int var17 = 0; var17 < 14; ++var17)
 				{
-					var16.setInventorySlotContents(par2Random.nextInt(var16.getSizeInventory()), var18);
+					ItemStack var18 = this.pickCheckLootItem(par2Random);
+
+					if (var18 != null)
+					{
+						var16.setInventorySlotContents(par2Random.nextInt(var16.getSizeInventory()), var18);
+					}
 				}
 			}
 		}
-		return false;
-    }
+		return true;
+
+	}
 	
 	
     private ItemStack pickCheckLootItem(Random random)

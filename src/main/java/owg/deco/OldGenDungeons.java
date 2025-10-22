@@ -168,17 +168,16 @@ public class OldGenDungeons extends WorldGenerator
             }
         }
 
-        par1World.setBlock(par3, par4, par5, Blocks.mob_spawner);
+        par1World.setBlock(par3, par4, par5, Blocks.mob_spawner, 0, 2);
         TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)par1World.getTileEntity(par3, par4, par5);
-
 
         if (tileentitymobspawner != null)
         {
-            tileentitymobspawner.func_145881_a().setEntityName(pickMobSpawner(par2Random));
+            tileentitymobspawner.func_145881_a().setEntityName(this.pickMobSpawner(par2Random));
         }
         else
         {
-            System.err.println((new StringBuilder()).append("Failed to fetch mob spawner entity at (").append(par3).append(", ").append(par4).append(", ").append(par5).append(")").toString());
+            System.err.println("Failed to fetch mob spawner entity at (" + par3 + ", " + par4 + ", " + par5 + ")");
         }
 
         return true;
