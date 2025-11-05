@@ -74,9 +74,10 @@ public class OldGenLiquids extends WorldGenerator
         if(l == 3 && i1 == 1)
         {
             world.setBlock(i, j, k, liquidBlockId);
-            world.scheduledUpdatesAreImmediate = true;
-            liquidBlockId.updateTick(world, i, j, k, random);
-            world.scheduledUpdatesAreImmediate = false;
+
+            // Schedule a block update to make the liquid flow.
+            // This is the proper way to ensure liquids start flowing after world generation.
+            world.scheduleBlockUpdate(i, j, k, liquidBlockId, random.nextInt(4) + 2);
         }
         return true;
     }
