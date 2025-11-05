@@ -67,6 +67,7 @@ public class DungeonLoot
 		add(new ItemStack(Items.saddle), 1, 1, 5);
 		add(new ItemStack(Blocks.sponge), 1, 2, 5);
 		add(new ItemStack(Items.slime_ball), 1, 4, 5);
+		add(new ItemStack(Items.clay_ball), 1, 5, 5);
 		add(new ItemStack(Items.gold_ingot), 1, 3, 5);
 		add(new ItemStack(Items.arrow), 1, 5, 5);
 		add(new ItemStack(Items.dye, 1, 4), 1, 3, 5); // Lapis
