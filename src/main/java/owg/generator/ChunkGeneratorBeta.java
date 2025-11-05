@@ -40,6 +40,7 @@ import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
@@ -629,7 +630,19 @@ public class ChunkGeneratorBeta implements IChunkProvider
 				int k13 = l + rand.nextInt(16);
 				(new OldGenMinable(Blocks.lapis_ore, 6, 2)).generate(worldObj, rand, k7, l10, k13);
 			}
-			
+
+            // Add emerald ore generation for Vanilla Biomes
+            if(BiomeDictionary.isBiomeOfType(biomegenbase, BiomeDictionary.Type.MOUNTAIN))
+            {
+                for(int em = 0; em < 6; em++)
+                {
+                    int em_x = k + rand.nextInt(16);
+                    int em_y = rand.nextInt(28) + 4; // Y from 4 to 31
+                    int em_z = l + rand.nextInt(16);
+                    (new OldGenMinable(Blocks.emerald_ore, 3, 2)).generate(worldObj, rand, em_x, em_y, em_z);
+                }
+            }
+
 			d = 0.5D;
 			int k4 = (int)((mobSpawnerNoise.func_806_a((double)k * d, (double)l * d) / 8D + rand.nextDouble() * 4D + 4D) / 3D);
 			int l7 = 0;
