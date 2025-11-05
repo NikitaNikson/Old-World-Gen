@@ -583,7 +583,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
 				(new OldGenMinable(Blocks.gravel, 32, 2)).generate(worldObj, rand, i6, j9, i12);
 			}
 	
-			for(int i3 = 0; i3 < 20; i3++) //GOOD
+			for(int i3 = 0; i3 < 16; i3++) //GOOD
 			{
 				int j6 = k + rand.nextInt(16);
 				int k9 = rand.nextInt(128);

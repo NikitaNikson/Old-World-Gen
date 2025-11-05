@@ -439,7 +439,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
             (new OldGenMinable(Blocks.gravel, 32, 0)).generate(field_907_p, field_913_j, l4, i7, l11);
         }
 
-        for(int j2 = 0; j2 < 20; j2++)
+        for(int j2 = 0; j2 < 16; j2++)
         {
             int i5 = k + field_913_j.nextInt(16);
             int j7 = field_913_j.nextInt(128);
