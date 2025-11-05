@@ -185,16 +185,6 @@ public class OldGenDungeons extends WorldGenerator
 	
 	private ItemStack pickCheckLootItem(Random random)
 	{
-		//fix for world gen seed
-		int i = random.nextInt(11), r = 0;
-		if(i == 1) { r = random.nextInt(4) + 1; }
-		else if(i == 3) { r = random.nextInt(4) + 1; }
-		else if(i == 4) { r = random.nextInt(4) + 1; }
-		else if(i == 5) { r = random.nextInt(4) + 1; }
-		else if(i == 7 && random.nextInt(100) == 0) { }
-		else if(i == 8 && random.nextInt(2) == 0) { r = random.nextInt(4) + 1; }
-		else if(i == 9 && random.nextInt(10) == 0) { r = random.nextInt(2); }
-		
 		//getting item from DungeonLoot array
 		return DungeonLoot.pickItem();
 	}
