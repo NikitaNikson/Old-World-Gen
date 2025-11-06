@@ -238,14 +238,19 @@ public class ChunkGeneratorBeta implements IChunkProvider
     	{
 	        byte byte0 = 64;
 	        double d = 0.03125D;
-	        sandNoise = field_909_n.generateNoiseOctaves(sandNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d, d, 1.0D);
-	        gravelNoise = field_909_n.generateNoiseOctaves(gravelNoise, i * 16, 109.0134D, j * 16, 16, 1, 16, d, 1.0D, d);
-	        stoneNoise = field_908_o.generateNoiseOctaves(stoneNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d * 2D, d * 2D, d * 2D);
+            // REMOVED: Pre-calculation of noise arrays is no longer needed.
+            // sandNoise = field_909_n.generateNoiseOctaves(sandNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d, d, 1.0D);
+            // gravelNoise = field_909_n.generateNoiseOctaves(gravelNoise, i * 16, 109.0134D, j * 16, 16, 1, 16, d, 1.0D, d);
+            // stoneNoise = field_908_o.generateNoiseOctaves(stoneNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d * 2D, d * 2D, d * 2D);
 	        for(int k = 0; k < 16; k++)
 	        {
 	            for(int l = 0; l < 16; l++)
 	            {
 	                BiomeGenBase biomegenbase = abiomegenbase[k + l * 16];
+
+                    // ADDED: Calculate noise per-coordinate for accuracy.
+                    double worldX = (double)(i * 16 + k);
+                    double worldZ = (double)(j * 16 + l);
 
 	                boolean flag = sandNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 0.0D;
 	                boolean flag1 = gravelNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 3D;
@@ -331,6 +336,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
     }
 
     private void polishSurface(Block[] blocks, BiomeGenBase[] biomes) {
+        final int sea = 63; // sea level for beta/alpha worlds
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
                 int col = (z * 16 + x) * 128;
@@ -340,7 +346,16 @@ public class ChunkGeneratorBeta implements IChunkProvider
                     if (b != Blocks.air) break;
                 }
                 if (y <= 0) continue;
+
                 Block top = blocks[col + y];
+                // Skip underwater or at/below sea level
+                if (y <= sea) continue;
+                // Skip if water above
+                if (y + 1 < 128) {
+                    Block above = blocks[col + y + 1];
+                    if (above == Blocks.water || above == Blocks.flowing_water) continue;
+                }
+
                 if (top == Blocks.stone) {
                     BiomeGenBase b = biomes[z * 16 + x];
                     Block tb = b.topBlock;
