@@ -19,16 +19,4 @@ public class BiomeClassic extends BiomeGenBase
         spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 2, 1, 1));
     }
-    
-    @SideOnly(Side.CLIENT)
-    public int getBiomeGrassColor(int a, int b, int c)
-    {
-        return 0xABFF67;
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public int getBiomeFoliageColor(int a, int b, int c)
-    {
-        return 0x4FFF2B;
-    }  
 }
