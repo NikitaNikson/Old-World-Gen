@@ -590,7 +590,7 @@ public class ChunkGeneratorIndev implements IChunkProvider
 			(new OldGenMinable(Blocks.gravel, 32, 2)).generate(worldObj, rand, i6, j9, i12);
 		}
 
-		for(int i3 = 0; i3 < 16 * extradeco; i3++)
+		for(int i3 = 0; i3 < 20 * extradeco; i3++)
 		{
 			int j6 = var4 + rand.nextInt(16);
 			int k9 = rand.nextInt(extraheight);

@@ -597,8 +597,7 @@ public class ChunkGeneratorBeta15 implements IChunkProvider
                 (new OldGenMinable(Blocks.gravel, 32, 2)).generate(worldObj, rand, i6, j9, i12);
             }
 
-            // Reduced i3 from 20 to 16 to better match Beta-like coal rarity
-            for(int i3 = 0; i3 < 16; i3++) //GOOD
+            for(int i3 = 0; i3 < 20; i3++) //GOOD
             {
                 int j6 = k + rand.nextInt(16);
                 int k9 = rand.nextInt(128);

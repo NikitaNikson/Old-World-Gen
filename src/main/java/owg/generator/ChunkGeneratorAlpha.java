@@ -484,7 +484,7 @@ public class ChunkGeneratorAlpha implements IChunkProvider
             (new OldGenMinable(Blocks.gravel, 32, 1)).generate(worldObj_16, field_913_j, l4, j7, k9);
         }
 
-        for(int j2 = 0; j2 < 16; j2++)
+        for(int j2 = 0; j2 < 20; j2++)
         {
             int i5 = k + field_913_j.nextInt(16);
             int k7 = field_913_j.nextInt(128);
