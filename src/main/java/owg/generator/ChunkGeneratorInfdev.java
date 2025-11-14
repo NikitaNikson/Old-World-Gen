@@ -498,7 +498,18 @@ public class ChunkGeneratorInfdev implements IChunkProvider
         {
             int j13 = k + field_913_j.nextInt(16) + 8;
             int l15 = l + field_913_j.nextInt(16) + 8;
-			WorldGenerator worldgenerator = new OldGenTrees(0);
+
+            // Only for Alpha 1.1.0 world.
+            WorldGenerator worldgenerator;
+            if(alpha && field_913_j.nextInt(10) == 0) // 10% chance for a big tree
+            {
+                worldgenerator = new OldGenBigTree(0);
+            }
+            else
+            {
+                worldgenerator = new OldGenTrees(0);
+            }
+
             worldgenerator.setScale(1.0D, 1.0D, 1.0D);
             worldgenerator.generate(field_907_p, field_913_j, j13, field_907_p.getHeightValue(j13, l15), l15);
         }
