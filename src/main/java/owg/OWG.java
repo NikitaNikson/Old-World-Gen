@@ -4,6 +4,8 @@ import owg.biomes.BiomeList;
 import owg.config.ConfigOWG;
 import owg.support.Support;
 import owg.world.WorldTypeOWG;
+import cpw.mods.fml.common.FMLCommonHandler;
+import owg.handler.SnowHandler;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -30,10 +32,13 @@ public class OWG
 		ConfigOWG.init(event);
 		BiomeList.init();
 	}
-	
+
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
+		SnowHandler snowHandler = new SnowHandler();
+		MinecraftForge.EVENT_BUS.register(snowHandler);
+		FMLCommonHandler.instance().bus().register(snowHandler);
 	}
 	
 	@EventHandler
