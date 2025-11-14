@@ -23,7 +23,23 @@ public class GeneratorTypeBeta extends GeneratorType
 	@Override
 	public boolean getSettings(GuiGeneratorSettings gui)
 	{
-		gui.settings.add(new GuiSettingsButton(new String[]{StatCollector.translateToLocal("owg.biomes.biomes") + ": " + StatCollector.translateToLocal("owg.biomes.original"), StatCollector.translateToLocal("owg.biomes.biomes") + ": " + StatCollector.translateToLocal("owg.biomes.vanilla"), StatCollector.translateToLocal("owg.biomes.biomes") + ": " + StatCollector.translateToLocal("owg.biomes.all")}, new int[]{0, 1, 2}, 20, 50, gui.width));
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{StatCollector.translateToLocal("owg.biomes.biomes") + ": " + StatCollector.translateToLocal("owg.biomes.original"),
+						StatCollector.translateToLocal("owg.biomes.biomes") + ": " + StatCollector.translateToLocal("owg.biomes.vanilla"),
+						StatCollector.translateToLocal("owg.biomes.biomes") + ": " + StatCollector.translateToLocal("owg.biomes.all")
+				},
+				new int[]{0, 1, 2},
+				20, 50, gui.width
+		));
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.tallgrass") + ": " + StatCollector.translateToLocal("owg.setting.on"),
+						StatCollector.translateToLocal("owg.setting.tallgrass") + ": " + StatCollector.translateToLocal("owg.setting.off")
+				},
+				new int[]{0, 1}, // 0 = On, 1 = Off
+				21, 70, gui.width,
+				20, new int[]{0} // Depends on button 20, visible only when its value is 0
+		));
 		return true;
 	}
 	
