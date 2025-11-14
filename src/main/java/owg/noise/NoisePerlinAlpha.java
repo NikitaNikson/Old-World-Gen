@@ -102,16 +102,6 @@ public class NoisePerlinAlpha extends OldNoiseGenerator2
     {
         if(j == 1)
         {
-            boolean flag = false;
-            boolean flag1 = false;
-            boolean flag2 = false;
-            boolean flag3 = false;
-            boolean flag4 = false;
-            boolean flag6 = false;
-            double d8 = 0.0D;
-            double d10 = 0.0D;
-            double d11 = 0.0D;
-            double d14 = 0.0D;
             int j4 = 0;
             double d17 = 1.0D / d6;
             for(int k4 = 0; k4 < i; k4++)
@@ -138,10 +128,8 @@ public class NoisePerlinAlpha extends OldNoiseGenerator2
                     double d25 = d23 * d23 * d23 * (d23 * (d23 * 6D - 15D) + 10D);
                     int l = permutations[j5] + 0;
                     int j1 = permutations[l] + l6;
-                    int k1 = permutations[l + 1] + l6;
                     int l1 = permutations[j5 + 1] + 0;
                     int j2 = permutations[l1] + l6;
-                    int l2 = permutations[l1 + 1] + l6;
                     double d9 = lerp(d21, func_4110_a(permutations[j1], d19, d23), grad(permutations[j2], d19 - 1.0D, 0.0D, d23));
                     double d12 = lerp(d21, grad(permutations[j1 + 1], d19, 0.0D, d23 - 1.0D), grad(permutations[j2 + 1], d19 - 1.0D, 0.0D, d23 - 1.0D));
                     double d27 = lerp(d25, d9, d12);
@@ -155,12 +143,6 @@ public class NoisePerlinAlpha extends OldNoiseGenerator2
         int i1 = 0;
         double d7 = 1.0D / d6;
         int i2 = -1;
-        boolean flag5 = false;
-        boolean flag7 = false;
-        boolean flag8 = false;
-        boolean flag9 = false;
-        boolean flag10 = false;
-        boolean flag11 = false;
         double d13 = 0.0D;
         double d15 = 0.0D;
         double d16 = 0.0D;

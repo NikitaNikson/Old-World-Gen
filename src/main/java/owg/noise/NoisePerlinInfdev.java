@@ -97,12 +97,6 @@ public class NoisePerlinInfdev extends NoiseGenerator
         int l = 0;
         double d7 = 1.0D / d6;
         int i1 = -1;
-        boolean flag = false;
-        boolean flag1 = false;
-        boolean flag2 = false;
-        boolean flag3 = false;
-        boolean flag4 = false;
-        boolean flag5 = false;
         double d8 = 0.0D;
         double d9 = 0.0D;
         double d10 = 0.0D;

@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2003, 2004 Jason Bevins (original libnoise code)
- * Copyright © 2010 Thomas J. Hodge (java port of libnoise)
+ * Copyright ï¿½ 2010 Thomas J. Hodge (java port of libnoise)
  * 
  * This file was part of libnoiseforjava.
  * 
@@ -32,6 +32,7 @@ import java.util.Random;
  * octaves and 2d noise, 
  * 
  * by mncat77 and jtjj222. <----------  
+ * optimized by adahel.
  */
 public class CellNoise 
 {
@@ -119,13 +120,15 @@ public class CellNoise
 		double xCandidate = 0;
 		double zCandidate = 0;
 
+		Random rand = new Random(this.seed);
+
 		for(int zCur = zInt - 2; zCur <= zInt + 2; zCur++) 
 		{
 			for(int xCur = xInt - 2; xCur <= xInt + 2; xCur++) 
 			{
 
 				double xPos = xCur + valueNoise2D(xCur, zCur, seed);
-				double zPos = zCur + valueNoise2D(xCur, zCur, new Random(seed).nextLong());
+				double zPos = zCur + valueNoise2D(xCur, zCur, rand.nextLong());
 				double xDist = xPos - x;
 				double zDist = zPos - z;
 				double dist = xDist * xDist + zDist * zDist;
@@ -160,12 +163,8 @@ public class CellNoise
 		int zInt = (z > .0? (int)z: (int)z - 1);
 
 		double dCandidate = 32000000.0;
-		double xCandidate = 0;
-		double zCandidate = 0;
 		
 		double dNeighbour = 32000000.0;
-		double xNeighbour = 0;
-		double zNeighbour = 0;
 
 		for(int zCur = zInt - 2; zCur <= zInt + 2; zCur++) 
 		{
@@ -174,8 +173,6 @@ public class CellNoise
 
 				double xPos = xCur + valueNoise2D(xCur, zCur, seed);
 				double zPos = zCur + valueNoise2D(xCur, zCur, new Random(seed).nextLong());
-				double xDist = xPos - x;
-				double zDist = zPos - z;
 				//double dist = xDist * xDist + zDist * zDist;
 				double dist = getDistance2D(xPos - x, zPos - z);
 				

@@ -103,12 +103,6 @@ public class NoisePerlinBeta extends NoiseGenerator
     {
         if(j == 1)
         {
-            boolean flag = false;
-            boolean flag1 = false;
-            boolean flag2 = false;
-            boolean flag3 = false;
-            double d8 = 0.0D;
-            double d10 = 0.0D;
             int j3 = 0;
             double d12 = 1.0D / d6;
             for(int i4 = 0; i4 < i; i4++)
@@ -150,12 +144,6 @@ public class NoisePerlinBeta extends NoiseGenerator
         int i1 = 0;
         double d7 = 1.0D / d6;
         int i2 = -1;
-        boolean flag4 = false;
-        boolean flag5 = false;
-        boolean flag6 = false;
-        boolean flag7 = false;
-        boolean flag8 = false;
-        boolean flag9 = false;
         double d13 = 0.0D;
         double d15 = 0.0D;
         double d16 = 0.0D;

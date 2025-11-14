@@ -43,9 +43,6 @@ public class PerlinNoise
     /** Default sample size to work with */
     private final int DEFAULT_SAMPLE_SIZE = 256;
 
-    /** The log of 1/2 constant. Used Everywhere */
-    private final float LOG_HALF = (float)Math.log(0.5);
-
     /** Permutation array for the improved noise function */
     private int[] p_imp;
 
@@ -526,33 +523,6 @@ public class PerlinNoise
         double v = (h < 4 || h == 12 || h == 13) ? y : z;
 
         return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
-    }
-
-    /**
-     * Simple bias generator using exponents.
-     */
-    private float bias(float a, float b)
-    {
-        return (float)Math.pow(a, Math.log(b) / LOG_HALF);
-    }
-
-
-    /*
-     * Gain generator that caps to the range of [0, 1].
-     */
-    private float gain(float a, float b)
-    {
-        if(a < 0.001f)
-            return 0;
-        else if (a > 0.999f)
-            return 1.0f;
-
-        double p = Math.log(1.0f - b) / LOG_HALF;
-
-        if(a < 0.5f)
-            return (float)(Math.pow(2 * a, p) / 2);
-        else
-            return 1 - (float)(Math.pow(2 * (1.0f - a), p) / 2);
     }
 
     /**
