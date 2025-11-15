@@ -7,7 +7,9 @@ public class ConfigOWG
 {
 	public static Configuration config;
 	public static int[] biomeIDs = new int[12];
-	
+
+	public static boolean enableCustomDungeonLoot;
+
 	public static void init(FMLPreInitializationEvent event)
 	{
 		config = new Configuration(event.getSuggestedConfigurationFile());
@@ -36,6 +38,8 @@ public class ConfigOWG
 			//INFDEV-INDEV-CLASSIC BIOMES
 			biomeIDs[10] = config.get("2 - Infdev & Indev", "Classic", 198).getInt();
 			biomeIDs[11] = config.get("2 - Infdev & Indev", "ClassicSnow", 199).getInt();
+
+			enableCustomDungeonLoot = config.getBoolean("Enable custom dungeon loot", "Structures", true, "Set this to false to use Forge's API for populating dungeon chest contents instead of OWG's algorithm."); // Thanks makamys
 		}
 		catch (Exception e) 
 		{
