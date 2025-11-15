@@ -32,6 +32,20 @@ public class GeneratorTypeAlpha11 extends GeneratorType
 				-1, new int[0],
 				StatCollector.translateToLocal("owg.tooltip.snowworld")
 		));
+
+		// New Ores toggle button. ID: 21
+		String tooltip = StatCollector.translateToLocal("owg.tooltip.newores.main") + "\\n\u00A7a" + StatCollector.translateToLocal("owg.tooltip.newores.alpha11");
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.on")
+				},
+				new int[]{0, 1},
+				21, 70, gui.width,
+				-1, new int[0],
+				tooltip
+		));
+
 		return true;
 	}
 

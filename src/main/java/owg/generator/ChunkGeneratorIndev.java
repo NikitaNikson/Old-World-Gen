@@ -32,6 +32,7 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import owg.generatortype.GeneratorType;
 
 public class ChunkGeneratorIndev implements IChunkProvider
 {
@@ -633,13 +634,26 @@ public class ChunkGeneratorIndev implements IChunkProvider
 			(new OldGenMinable(Blocks.diamond_ore, 7, 2)).generate(worldObj, rand, j7, k10, j13);
 		}
 
-		for(int j4 = 0; j4 < 1; j4++)
+		if (GeneratorType.trySetting(5, 1) == 1)
 		{
-			int k7 = var4 + rand.nextInt(16);
-			int l10 = rand.nextInt(16) + floatingore;
-			int k13 = var5 + rand.nextInt(16);
-			(new OldGenMinable(Blocks.lapis_ore, 6, 2)).generate(worldObj, rand, k7, l10, k13);
-		}		
+			// Lapis
+			for(int j4 = 0; j4 < 1; j4++)
+			{
+				int k7 = var4 + rand.nextInt(16);
+				int l10 = rand.nextInt(16) + floatingore;
+				int k13 = var5 + rand.nextInt(16);
+				(new OldGenMinable(Blocks.lapis_ore, 6, 2)).generate(worldObj, rand, k7, l10, k13);
+			}
+
+			// Emerald
+			for(int i = 0; i < 1; i++)
+			{
+				int x = var4 + rand.nextInt(16);
+				int y = rand.nextInt(16);
+				int z = var5 + rand.nextInt(16);
+				(new OldGenMinable(Blocks.emerald_ore, 1, 2)).generate(worldObj, rand, x, y, z);
+			}
+		}
 		
 		//TREES
         d = 0.5D;

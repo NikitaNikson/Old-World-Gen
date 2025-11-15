@@ -647,15 +647,17 @@ public class ChunkGeneratorBeta implements IChunkProvider
 				(new OldGenMinable(Blocks.lapis_ore, 6, 2)).generate(worldObj, rand, k7, l10, k13);
 			}
 
-            // Add emerald ore generation for Vanilla Biomes
-            if(BiomeDictionary.isBiomeOfType(biomegenbase, BiomeDictionary.Type.MOUNTAIN))
+            // Add emerald ore generation for Beta 1.7.3
+            if (GeneratorType.trySetting(2, 1) == 1)
             {
-                for(int em = 0; em < 6; em++)
+                // Generates emeralds rarely in caves
+                // 1 attempt per chunk
+                for (int em = 0; em < 1; em++)
                 {
-                    int em_x = k + rand.nextInt(16);
-                    int em_y = rand.nextInt(28) + 4; // Y from 4 to 31
-                    int em_z = l + rand.nextInt(16);
-                    (new OldGenMinable(Blocks.emerald_ore, 3, 2)).generate(worldObj, rand, em_x, em_y, em_z);
+                    int x = k + rand.nextInt(16);
+                    int y = rand.nextInt(28) + 4; // Y-level between 4 and 31
+                    int z = l + rand.nextInt(16);
+                    (new OldGenMinable(Blocks.emerald_ore, 1, 2)).generate(worldObj, rand, x, y, z);
                 }
             }
 

@@ -33,6 +33,7 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import owg.generatortype.GeneratorType;
 
 public class ChunkGeneratorInfdev implements IChunkProvider
 {
@@ -478,7 +479,26 @@ public class ChunkGeneratorInfdev implements IChunkProvider
             int i13 = l + field_913_j.nextInt(16);
             (new OldGenMinable(Blocks.diamond_ore, 7, 0)).generate(field_907_p, field_913_j, i6, j8, i13);
         }
+        if (GeneratorType.trySetting(1, 1) == 1)
+        {
+            // Lapis
+            for(int lapisAttempt = 0; lapisAttempt < 1; lapisAttempt++)
+            {
+                int x = k + field_913_j.nextInt(16);
+                int y = field_913_j.nextInt(16) + 16;
+                int z = l + field_913_j.nextInt(16);
+                (new OldGenMinable(Blocks.lapis_ore, 6, 0)).generate(field_907_p, field_913_j, x, y, z);
+            }
 
+            // Emerald
+            for(int emeraldAttempt = 0; emeraldAttempt < 1; emeraldAttempt++)
+            {
+                int x = k + field_913_j.nextInt(16);
+                int y = field_913_j.nextInt(16);
+                int z = l + field_913_j.nextInt(16);
+                (new OldGenMinable(Blocks.emerald_ore, 1, 0)).generate(field_907_p, field_913_j, x, y, z);
+            }
+        }
         d = 0.5D;
         int l3 = (int)((field_920_c.func_806_a((double)k * d, (double)l * d) / 8D + field_913_j.nextDouble() * 4D + 4D) / 3D);
         if(l3 < 0)

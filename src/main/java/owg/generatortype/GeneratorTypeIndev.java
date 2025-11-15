@@ -27,6 +27,19 @@ public class GeneratorTypeIndev extends GeneratorType
 		gui.settings.add(new GuiSettingsSlider(new String[]{StatCollector.translateToLocal("owg.setting.size") + ": " + StatCollector.translateToLocal("owg.setting.small"), StatCollector.translateToLocal("owg.setting.size") + ": " + StatCollector.translateToLocal("owg.setting.default"), StatCollector.translateToLocal("owg.setting.size") + ": " + StatCollector.translateToLocal("owg.setting.large")}, new int[]{0, 1, 2}, 1, 22, 90, gui.width, 21, new int[]{0, 1}));
 		gui.settings.add(new GuiSettingsSlider(new String[]{StatCollector.translateToLocal("owg.setting.layer") + ": 1", StatCollector.translateToLocal("owg.setting.layer") + ": 2", StatCollector.translateToLocal("owg.setting.layer") + ": 3", StatCollector.translateToLocal("owg.setting.layer") + ": 4", StatCollector.translateToLocal("owg.setting.layer") + ": 5"}, new int[]{0, 1, 2, 3, 4}, 1, 23, 110, gui.width, 21, new int[]{1}));
 		gui.settings.add(new GuiSettingsButton(new String[]{StatCollector.translateToLocal("owg.setting.dungeon") + ": " + StatCollector.translateToLocal("owg.setting.on"), StatCollector.translateToLocal("owg.setting.dungeon") + ": " + StatCollector.translateToLocal("owg.setting.end"), StatCollector.translateToLocal("owg.setting.dungeon") + ": " + StatCollector.translateToLocal("owg.setting.off")}, new int[]{0, 1, 2}, 24, 130, gui.width, 21, new int[]{1}));
+		// New Ores toggle button. ID: 25
+		String tooltip = StatCollector.translateToLocal("owg.tooltip.newores.main") + "\\n\u00A7a" + StatCollector.translateToLocal("owg.tooltip.newores.indev");
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.on")
+				},
+				new int[]{0, 1},
+				25, 150, gui.width,
+				-1, new int[0],
+				tooltip
+		));
+
 		return true;
 	}
 	

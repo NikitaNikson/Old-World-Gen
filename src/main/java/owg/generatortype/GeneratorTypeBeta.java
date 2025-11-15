@@ -46,6 +46,19 @@ public class GeneratorTypeBeta extends GeneratorType
 				StatCollector.translateToLocal("owg.tooltip.tallgrass")
 		));
 
+		// New Ores toggle button. ID: 22
+		String tooltip = StatCollector.translateToLocal("owg.tooltip.newores.main") + "\\n\u00A7a" + StatCollector.translateToLocal("owg.tooltip.newores.beta");
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.on")
+				},
+				new int[]{0, 1},
+				22, 90, gui.width,
+				-1, new int[0],
+				tooltip
+		));
+
 		return true;
 	}
 

@@ -18,6 +18,25 @@ public class GeneratorTypeAlpha12 extends GeneratorType
 	{
 		super(id, cat, name, c);
 	}
+
+	@Override
+	public boolean getSettings(GuiGeneratorSettings gui)
+	{
+		// New Ores toggle button. ID: 20
+		String tooltip = StatCollector.translateToLocal("owg.tooltip.newores.main") + "\\n\u00A7a" + StatCollector.translateToLocal("owg.tooltip.newores.alpha12");
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+						StatCollector.translateToLocal("owg.setting.newores") + ": " + StatCollector.translateToLocal("owg.setting.on")
+				},
+				new int[]{0, 1},
+				20, 50, gui.width,
+				-1, new int[0],
+				tooltip
+		));
+
+		return true;
+	}
 	
 	@Override
 	public WorldChunkManager getServerWorldChunkManager(World world)
