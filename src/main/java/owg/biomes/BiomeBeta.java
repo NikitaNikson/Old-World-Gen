@@ -22,6 +22,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 public class BiomeBeta extends BiomeGenBase
 {
 	private int id;
+	public static boolean useSaturatedColors = false;
 
     public BiomeBeta(int par1, int i)
     {
@@ -104,43 +105,56 @@ public class BiomeBeta extends BiomeGenBase
 	@SideOnly(Side.CLIENT)
 	public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
 	{
-		// taiga & tundra
-		if( id == 6 || id == 9 )
+		if (useSaturatedColors) // Saturated (on)
 		{
-			return ColorizerGrass.getGrassColor(0.6F, 0.6F);
+			if(id == 6 || id == 9) { return ColorizerGrass.getGrassColor(0.6F, 0.6F); } // Taiga & Tundra
+			else if(id == 7) { return ColorizerGrass.getGrassColor(0.9F, 0.1F); } // Desert
+			else
+			{
+				double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_) + 0.3F, 0.0F, 1.0F);
+				double d1 = MathHelper.clamp_float(getFloatRainfall() + 0.1F, 0.0F, 1.0F);
+				return ColorizerGrass.getGrassColor(d, d1);
+			}
 		}
-		// desert
-		else if( id == 7 )
+		else // Default (off)
 		{
-			return ColorizerGrass.getGrassColor(0.9F, 0.1F); // Also changed this line
-		}
-		else
-		{
-			double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_) + 0.3F, 0.0F, 1.0F);
-			double d1 = MathHelper.clamp_float(getFloatRainfall() + 0.1F, 0.0F, 1.0F);
-			// temperature & rainfall
-			return ColorizerGrass.getGrassColor(d, d1);
+			if(id == 6 || id == 9) { return ColorizerGrass.getGrassColor(0.6F, 0.6F); } // Taiga & Tundra
+			else if(id == 7) { return ColorizerGrass.getGrassColor(0.8F, 0.2F); }
+			else
+			{
+				double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_), 0.0F, 1.0F);
+				double d1 = MathHelper.clamp_float(getFloatRainfall(), 0.0F, 1.0F);
+				return ColorizerGrass.getGrassColor(d, d1);
+			}
 		}
 	}
 
-    @SideOnly(Side.CLIENT)
-    public int getBiomeFoliageColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
-    {
-		if( id == 6 || id == 9 )
+	@SideOnly(Side.CLIENT)
+	public int getBiomeFoliageColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+	{
+		if (useSaturatedColors) // Saturated (on)
 		{
-			return ColorizerFoliage.getFoliageColor(0.6F, 0.6F);
+			if(id == 6 || id == 9) { return ColorizerFoliage.getFoliageColor(0.6F, 0.6F); } // Taiga & Tundra
+			else if(id == 7) { return ColorizerFoliage.getFoliageColor(0.9F, 0.1F); } // Desert
+			else
+			{
+				double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_) + 0.3F, 0.0F, 1.0F);
+				double d1 = MathHelper.clamp_float(getFloatRainfall() + 0.1F, 0.0F, 1.0F);
+				return ColorizerFoliage.getFoliageColor(d, d1);
+			}
 		}
-		else if( id == 7 )
+		else // Default (off)
 		{
-			return ColorizerFoliage.getFoliageColor(0.9F, 0.1F);
+			if(id == 6 || id == 9) { return ColorizerFoliage.getFoliageColor(0.6F, 0.6F); } // Taiga & Tundra
+			else if(id == 7) { return ColorizerFoliage.getFoliageColor(0.8F, 0.2F); } // Desert
+			else
+			{
+				double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_), 0.0F, 1.0F);
+				double d1 = MathHelper.clamp_float(getFloatRainfall(), 0.0F, 1.0F);
+				return ColorizerFoliage.getFoliageColor(d, d1);
+			}
 		}
-		else
-		{
-			double d = MathHelper.clamp_float(getFTemp(p_150558_1_, p_150558_2_, p_150558_3_) + 0.3F, 0.0F, 1.0F);
-			double d1 = MathHelper.clamp_float(getFloatRainfall() + 0.1F, 0.0F, 1.0F);
-			return ColorizerFoliage.getFoliageColor(d, d1);
-		}
-    }    
+	}
 
     @SideOnly(Side.CLIENT)
     public float getFTemp(int p_150564_1_, int p_150564_2_, int p_150564_3_)

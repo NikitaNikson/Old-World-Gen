@@ -59,6 +59,19 @@ public class GeneratorTypeBeta extends GeneratorType
 				tooltip
 		));
 
+		// Beta Coloring toggle button. ID: 23
+		String colorTooltip = StatCollector.translateToLocal("owg.tooltip.betacolor.line1") + "\\n\u00A7c" + StatCollector.translateToLocal("owg.tooltip.betacolor.line2");
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.betacolor") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+						StatCollector.translateToLocal("owg.setting.betacolor") + ": " + StatCollector.translateToLocal("owg.setting.on")
+				},
+				new int[]{0, 1}, // 0 = Off (default), 1 = On
+				23, 110, gui.width,
+				-1, new int[0],
+				colorTooltip
+		));
+
 		return true;
 	}
 

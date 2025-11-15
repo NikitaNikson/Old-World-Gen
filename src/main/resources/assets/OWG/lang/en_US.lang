@@ -31,6 +31,11 @@ owg.tooltip.newores.alpha11=For Alpha 1.1.0: Lapis Lazuli, Emeralds
 owg.tooltip.newores.indev=For Indev: Lapis Lazuli, Emeralds
 owg.tooltip.newores.infdev=For Infdev: Lapis Lazuli, Emeralds
 
+# Beta Coloring Setting
+owg.setting.betacolor=Beta Biome Colors
+owg.tooltip.betacolor.line1=Makes Grass/Leafs coloring more saturated.
+owg.tooltip.betacolor.line2=May result biome border bugs.
+
 owg.biomes.biomes=Biomes
 owg.biomes.original=Original
 owg.biomes.vanilla=Vanilla
