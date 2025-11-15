@@ -1,16 +1,16 @@
 [
-{
-  "modid": "OWG_by_bashyone",
-  "name": "Old World Generation 2.0",
-  "description": "Custom OWG fork featuring new tweaks and fixes.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ted80, bashyone"],
-  "credits": "",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "OWG",
+    "name": "OldWorldGen",
+    "description": "Brings back the old world generators from Beta, Alpha, Indev, and Infdev.\nOriginally created by Ted80. Some tweaks and fixes were taken from Adahel's 1.8.9 fork\n\nTweaked and improved for 1.7.10 by bashyone aka NikitaNikson",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/NikitaNikson/Old-World-Gen",
+    "updateUrl": "",
+    "authorList": ["ted80", "bashyone"],
+    "credits": "Ted80, Adahel",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]
