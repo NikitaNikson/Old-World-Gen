@@ -6,16 +6,18 @@ public class GuiSettingsSlider extends GuiSettingsButton
 {
 	public GuiSettingsSlider(String[] text, int[] values, int def, int buttonID, int posY, int width)
 	{
-		super(new GuiSlider(buttonID, width / 2 + 5, posY), text, values, buttonID, -1, new int[0]);
+		// Pass null for the new tooltip parameter
+		super(new GuiSlider(buttonID, width / 2 + 5, posY), text, values, buttonID, -1, new int[0], null);
 		((GuiSlider) button).setSlider(this, def);
 	}
-	
+
 	public GuiSettingsSlider(String[] text, int[] values, int def, int buttonID, int posY, int width, int dep, int[] vel)
 	{
-		super(new GuiSlider(buttonID, width / 2 + 5, posY), text, values, buttonID, dep, vel);
+		// Pass null for the new tooltip parameter
+		super(new GuiSlider(buttonID, width / 2 + 5, posY), text, values, buttonID, dep, vel, null);
 		((GuiSlider) button).setSlider(this, def);
 	}
-	
+
 	@Override
 	public void click()
 	{
@@ -32,6 +34,6 @@ public class GuiSettingsSlider extends GuiSettingsButton
 				((GuiSlider) button).setText();
 				break;
 			}
-		} 
+		}
 	}
 }

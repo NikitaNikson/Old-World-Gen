@@ -19,6 +19,7 @@ owg.setting.dungeon=Dungeons
 owg.setting.end=End portal only
 
 owg.setting.tallgrass=Tall Grass
+owg.tooltip.tallgrass=Disables the generation of tall grass.\n§aTall grass was added in Beta 1.7.3
 
 owg.biomes.biomes=Biomes
 owg.biomes.original=Original
