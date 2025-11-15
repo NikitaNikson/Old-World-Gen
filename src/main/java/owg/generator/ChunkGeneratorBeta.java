@@ -49,6 +49,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
+import owg.structure.MapGenVillageOWG;
 
 public class ChunkGeneratorBeta implements IChunkProvider
 {
@@ -74,7 +75,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
     private MapGenOLD field_902_u;
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
-    private MapGenVillage villageGenerator = new MapGenVillage();
+    private MapGenVillage villageGenerator = new MapGenVillageOWG();
     private WorldGenDesertWells desertWellGenerator = new WorldGenDesertWells();
     private BiomeGenBase biomesForGeneration[];
 	private int biomeSettings;
