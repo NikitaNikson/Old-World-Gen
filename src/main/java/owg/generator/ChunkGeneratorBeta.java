@@ -48,6 +48,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraft.world.gen.structure.MapGenVillage;
+import net.minecraft.world.gen.feature.WorldGenDesertWells;
 
 public class ChunkGeneratorBeta implements IChunkProvider
 {
@@ -74,6 +75,7 @@ public class ChunkGeneratorBeta implements IChunkProvider
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
     private MapGenVillage villageGenerator = new MapGenVillage();
+    private WorldGenDesertWells desertWellGenerator = new WorldGenDesertWells();
     private BiomeGenBase biomesForGeneration[];
 	private int biomeSettings;
 	private Block[] tempBlocks;
@@ -548,6 +550,20 @@ public class ChunkGeneratorBeta implements IChunkProvider
 				strongholdGenerator.generateStructuresInChunk(worldObj, rand2, i, j);
 				mineshaftGenerator.generateStructuresInChunk(worldObj, rand2, i, j);
                 villageGenerator.generateStructuresInChunk(worldObj, rand2, i, j);
+                if (biomegenbase == BiomeList.OLDdesert)
+                {
+                    // 1 in 500 chunks for desert well
+                    if (rand.nextInt(500) == 0)
+                    {
+                        int x = k + rand.nextInt(16) + 8;
+                        int z = l + rand.nextInt(16) + 8;
+                        int y = this.worldObj.getHeightValue(x, z);
+                        if (y > 0)
+                        {
+                            this.desertWellGenerator.generate(this.worldObj, rand, x, y, z);
+                        }
+                    }
+                }
 			}
 
 			if(rand.nextInt(4) == 0)

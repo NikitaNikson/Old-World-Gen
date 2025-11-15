@@ -39,6 +39,7 @@ import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraft.world.gen.structure.MapGenVillage;
+import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import owg.generatortype.GeneratorType;
 
 public class ChunkGeneratorAlpha implements IChunkProvider
@@ -64,6 +65,7 @@ public class ChunkGeneratorAlpha implements IChunkProvider
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
     private MapGenVillage villageGenerator = new MapGenVillage();
+    private WorldGenDesertWells desertWellGenerator = new WorldGenDesertWells();
     private BiomeGenBase field_4179_v[];
 	private int biomeSettings;
 	
@@ -433,6 +435,19 @@ public class ChunkGeneratorAlpha implements IChunkProvider
 			strongholdGenerator.generateStructuresInChunk(worldObj_16, rand2, i, j);
 			mineshaftGenerator.generateStructuresInChunk(worldObj_16, rand2, i, j);
             villageGenerator.generateStructuresInChunk(worldObj_16, rand2, i, j);
+            if (biomegenbase == BiomeList.OLDdesert)
+            {
+                if (this.field_913_j.nextInt(500) == 0)
+                {
+                    int x = k + this.field_913_j.nextInt(16) + 8;
+                    int z = l + this.field_913_j.nextInt(16) + 8;
+                    int y = this.worldObj_16.getHeightValue(x, z);
+                    if (y > 0)
+                    {
+                        this.desertWellGenerator.generate(this.worldObj_16, this.field_913_j, x, y, z);
+                    }
+                }
+            }
 		}	
 		
 		if(field_913_j.nextInt(4) == 0)
