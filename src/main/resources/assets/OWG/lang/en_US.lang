@@ -20,7 +20,7 @@ owg.setting.end=End portal only
 
 owg.setting.tallgrass=Tall Grass
 owg.tooltip.tallgrass=Disables the generation of tall grass.\n§aTall grass was added in Beta 1.7.3
-owg.tooltip.snowworld=Generates a world covered in snow and ice.\nEnables permanent snowfall.
+owg.tooltip.snowworld=Generates a world covered in snow and ice.\n§aEnables permanent snowfall.
 
 # Ores Setting
 owg.setting.newores=Generate New Ores
