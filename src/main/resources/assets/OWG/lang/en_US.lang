@@ -24,12 +24,12 @@ owg.tooltip.snowworld=Generates a world covered in snow and ice.\n§aEnables per
 
 # Ores Setting
 owg.setting.newores=Generate New Ores
-owg.tooltip.newores.main=Enables generation of ores from newer Minecraft versions.
-owg.tooltip.newores.beta=For Beta 1.7.3: Emeralds
-owg.tooltip.newores.alpha12=For Alpha 1.2.0: Lapis Lazuli, Emeralds
-owg.tooltip.newores.alpha11=For Alpha 1.1.0: Lapis Lazuli, Emeralds
-owg.tooltip.newores.indev=For Indev: Lapis Lazuli, Emeralds
-owg.tooltip.newores.infdev=For Infdev: Lapis Lazuli, Emeralds
+owg.tooltip.newores.main=Enables ores from newer versions.
+owg.tooltip.newores.beta=For Beta 1.7.3:\nEmeralds
+owg.tooltip.newores.alpha12=For Alpha 1.2.0:\nLapis Lazuli, Emeralds
+owg.tooltip.newores.alpha11=For Alpha 1.1.0:\nLapis Lazuli, Emeralds
+owg.tooltip.newores.indev=For Indev:\nRedstone, Lapis Lazuli, Emeralds
+owg.tooltip.newores.infdev=For Infdev:\nRedstone, Lapis Lazuli, Emeralds
 
 # Beta Coloring Setting
 owg.setting.betacolor=Beta Biome Colors

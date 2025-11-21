@@ -46,7 +46,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
     public NoiseOctavesInfdev field_922_a;
     public NoiseOctavesInfdev field_921_b;
     public NoiseOctavesInfdev field_920_c;
-	
+
     private World field_907_p;
     private final boolean mapFeaturesEnabled;
     private double field_906_q[];
@@ -56,14 +56,14 @@ public class ChunkGeneratorInfdev implements IChunkProvider
     private MapGenOLD field_902_u;
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
-	
+
     double field_919_d[];
     double field_918_e[];
     double field_917_f[];
     double field_916_g[];
     double field_915_h[];
     int field_914_i[][];
-    
+
     private final boolean alpha;
 
     public ChunkGeneratorInfdev(World world, long l, boolean par4, boolean a)
@@ -76,9 +76,9 @@ public class ChunkGeneratorInfdev implements IChunkProvider
         field_907_p = world;
         mapFeaturesEnabled = par4;
         alpha = a;
-        
+
         DungeonLoot.init(l);
-        
+
         field_913_j = new Random(l);
         field_912_k = new NoiseOctavesInfdev(field_913_j, 16);
         field_911_l = new NoiseOctavesInfdev(field_913_j, 16);
@@ -132,7 +132,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
                                 Block l2 = Blocks.air;
                                 if(k1 * 8 + l1 < byte1)
                                 {
-									l2 = Blocks.water;
+                                    l2 = Blocks.water;
                                 }
                                 if(d15 > 0.0D)
                                 {
@@ -183,7 +183,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
                     int l1 = (k * 16 + l) * 128 + k1;
                     if(k1 <= (0 + field_913_j.nextInt(6)) - 1)
                     {
-                    	blocks[l1] = Blocks.bedrock;
+                        blocks[l1] = Blocks.bedrock;
                         continue;
                     }
                     Block byte3 = blocks[l1];
@@ -231,10 +231,10 @@ public class ChunkGeneratorInfdev implements IChunkProvider
                         j1 = i1;
                         if(k1 >= byte0 - 1)
                         {
-                        	blocks[l1] = byte1;
+                            blocks[l1] = byte1;
                         } else
                         {
-                        	blocks[l1] = byte2;
+                            blocks[l1] = byte2;
                         }
                         continue;
                     }
@@ -250,7 +250,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
         }
 
     }
-	
+
     public Chunk loadChunk(int par1, int par2)
     {
         return provideChunk(par1, par2);
@@ -263,13 +263,13 @@ public class ChunkGeneratorInfdev implements IChunkProvider
         generateTerrain(i, j, blocks);
         replaceBlocksForBiome(i, j, blocks);
         field_902_u.generate(this, field_907_p, i, j, blocks);
-		
+
         if (mapFeaturesEnabled)
         {
-			strongholdGenerator.func_151539_a(this, field_907_p, i, j, blocks);
-			mineshaftGenerator.func_151539_a(this, field_907_p, i, j, blocks);
-		}	
-		
+            strongholdGenerator.func_151539_a(this, field_907_p, i, j, blocks);
+            mineshaftGenerator.func_151539_a(this, field_907_p, i, j, blocks);
+        }
+
         Chunk chunk = new Chunk(field_907_p, blocks, i, j);
         chunk.generateSkylightMap();
         return chunk;
@@ -390,20 +390,20 @@ public class ChunkGeneratorInfdev implements IChunkProvider
         BlockSand.fallInstantly = true;
         int k = i * 16;
         int l = j * 16;
-		BiomeGenBase biomegenbase = field_907_p.getWorldChunkManager().getBiomeGenAt(k + 16, l + 16);
+        BiomeGenBase biomegenbase = field_907_p.getWorldChunkManager().getBiomeGenAt(k + 16, l + 16);
         field_913_j.setSeed(field_907_p.getSeed());
         long l1 = (field_913_j.nextLong() / 2L) * 2L + 1L;
         long l2 = (field_913_j.nextLong() / 2L) * 2L + 1L;
         field_913_j.setSeed((long)i * l1 + (long)j * l2 ^ field_907_p.getSeed());
         double d = 0.25D;
-		
+
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(ichunkprovider, field_907_p, field_913_j, i, j, false));
-        
-		if (mapFeaturesEnabled)
+
+        if (mapFeaturesEnabled)
         {
-			strongholdGenerator.generateStructuresInChunk(field_907_p, field_913_j, i, j);
-			mineshaftGenerator.generateStructuresInChunk(field_907_p, field_913_j, i, j);
-		}	
+            strongholdGenerator.generateStructuresInChunk(field_907_p, field_913_j, i, j);
+            mineshaftGenerator.generateStructuresInChunk(field_907_p, field_913_j, i, j);
+        }
 
         for(int i1 = 0; i1 < 8; i1++)
         {
@@ -412,18 +412,18 @@ public class ChunkGeneratorInfdev implements IChunkProvider
             int i11 = l + field_913_j.nextInt(16) + 8;
             (new OldGenDungeons()).generate(field_907_p, field_913_j, i4, j6, i11);
         }
-        
+
         if(alpha)
         {
-	        for(int j1 = 0; j1 < 10; j1++)
-	        {
-	            int j4 = k + field_913_j.nextInt(16);
-	            int k6 = field_913_j.nextInt(128);
-	            int j11 = l + field_913_j.nextInt(16);
-	            (new OldGenClay(32, 0)).generate(field_907_p, field_913_j, j4, k6, j11);
-	        }
+            for(int j1 = 0; j1 < 10; j1++)
+            {
+                int j4 = k + field_913_j.nextInt(16);
+                int k6 = field_913_j.nextInt(128);
+                int j11 = l + field_913_j.nextInt(16);
+                (new OldGenClay(32, 0)).generate(field_907_p, field_913_j, j4, k6, j11);
+            }
         }
-		
+
         for(int k1 = 0; k1 < 20; k1++)
         {
             int k4 = k + field_913_j.nextInt(16);
@@ -464,12 +464,16 @@ public class ChunkGeneratorInfdev implements IChunkProvider
             (new OldGenMinable(Blocks.gold_ore, 8, 0)).generate(field_907_p, field_913_j, k5, l7, k12);
         }
 
-        for(int j3 = 0; j3 < 8; j3++)
+        // Redstone generation: Always for Alpha 1.1.0 (alpha=true), conditional for Infdev (alpha=false)
+        if (alpha || GeneratorType.trySetting(1, 1) == 1)
         {
-            int l5 = k + field_913_j.nextInt(16);
-            int i8 = field_913_j.nextInt(16);
-            int l12 = l + field_913_j.nextInt(16);
-            (new OldGenMinable(Blocks.redstone_ore, 7, 0)).generate(field_907_p, field_913_j, l5, i8, l12);
+            for(int j3 = 0; j3 < 8; j3++)
+            {
+                int l5 = k + field_913_j.nextInt(16);
+                int i8 = field_913_j.nextInt(16);
+                int l12 = l + field_913_j.nextInt(16);
+                (new OldGenMinable(Blocks.redstone_ore, 7, 0)).generate(field_907_p, field_913_j, l5, i8, l12);
+            }
         }
 
         for(int k3 = 0; k3 < 1; k3++)
@@ -509,7 +513,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
         {
             l3++;
         }
-		Object obj = new OldGenTrees(0);
+        Object obj = new OldGenTrees(0);
         if(field_913_j.nextInt(10) == 0 && alpha)
         {
             obj = new OldGenBigTree(0);
@@ -552,59 +556,59 @@ public class ChunkGeneratorInfdev implements IChunkProvider
 
         if(alpha)
         {
-	        if(field_913_j.nextInt(4) == 0)
-	        {
-	            int j9 = k + field_913_j.nextInt(16) + 8;
-	            int i14 = field_913_j.nextInt(128);
-	            int k16 = l + field_913_j.nextInt(16) + 8;
-	            (new OldGenFlowers(Blocks.brown_mushroom)).generate(field_907_p, field_913_j, j9, i14, k16);
-	        }
-	        if(field_913_j.nextInt(8) == 0)
-	        {
-	            int k9 = k + field_913_j.nextInt(16) + 8;
-	            int j14 = field_913_j.nextInt(128);
-	            int l16 = l + field_913_j.nextInt(16) + 8;
-	            (new OldGenFlowers(Blocks.red_mushroom)).generate(field_907_p, field_913_j, k9, j14, l16);
-	        }
+            if(field_913_j.nextInt(4) == 0)
+            {
+                int j9 = k + field_913_j.nextInt(16) + 8;
+                int i14 = field_913_j.nextInt(128);
+                int k16 = l + field_913_j.nextInt(16) + 8;
+                (new OldGenFlowers(Blocks.brown_mushroom)).generate(field_907_p, field_913_j, j9, i14, k16);
+            }
+            if(field_913_j.nextInt(8) == 0)
+            {
+                int k9 = k + field_913_j.nextInt(16) + 8;
+                int j14 = field_913_j.nextInt(128);
+                int l16 = l + field_913_j.nextInt(16) + 8;
+                (new OldGenFlowers(Blocks.red_mushroom)).generate(field_907_p, field_913_j, k9, j14, l16);
+            }
         }
         else
         {
-	        if(field_913_j.nextInt(6) == 0)
-	        {
-	            int j9 = k + field_913_j.nextInt(16) + 8;
-	            int i14 = field_913_j.nextInt(64);
-	            int k16 = l + field_913_j.nextInt(16) + 8;
-	            (new OldGenFlowers(Blocks.brown_mushroom)).generate(field_907_p, field_913_j, j9, i14, k16);
-	        }
-	        if(field_913_j.nextInt(12) == 0)
-	        {
-	            int k9 = k + field_913_j.nextInt(16) + 8;
-	            int j14 = field_913_j.nextInt(64);
-	            int l16 = l + field_913_j.nextInt(16) + 8;
-	            (new OldGenFlowers(Blocks.red_mushroom)).generate(field_907_p, field_913_j, k9, j14, l16);
-	        }
+            if(field_913_j.nextInt(6) == 0)
+            {
+                int j9 = k + field_913_j.nextInt(16) + 8;
+                int i14 = field_913_j.nextInt(64);
+                int k16 = l + field_913_j.nextInt(16) + 8;
+                (new OldGenFlowers(Blocks.brown_mushroom)).generate(field_907_p, field_913_j, j9, i14, k16);
+            }
+            if(field_913_j.nextInt(12) == 0)
+            {
+                int k9 = k + field_913_j.nextInt(16) + 8;
+                int j14 = field_913_j.nextInt(64);
+                int l16 = l + field_913_j.nextInt(16) + 8;
+                (new OldGenFlowers(Blocks.red_mushroom)).generate(field_907_p, field_913_j, k9, j14, l16);
+            }
         }
 
         if(alpha)
         {
-	        for(int l9 = 0; l9 < 10; l9++)
-	        {
-	            int k14 = k + field_913_j.nextInt(16) + 8;
-	            int i17 = field_913_j.nextInt(128);
-	            int k18 = l + field_913_j.nextInt(16) + 8;
-	            (new OldGenReed()).generate(field_907_p, field_913_j, k14, i17, k18);
-	        }
+            for(int l9 = 0; l9 < 10; l9++)
+            {
+                int k14 = k + field_913_j.nextInt(16) + 8;
+                int i17 = field_913_j.nextInt(128);
+                int k18 = l + field_913_j.nextInt(16) + 8;
+                (new OldGenReed()).generate(field_907_p, field_913_j, k14, i17, k18);
+            }
         }
 
         if(alpha)
         {
-	        for(int i10 = 0; i10 < 1; i10++)
-	        {
-	            int l14 = k + field_913_j.nextInt(16) + 8;
-	            int j17 = field_913_j.nextInt(128);
-	            int l18 = l + field_913_j.nextInt(16) + 8;
-	            (new OldGenCactus()).generate(field_907_p, field_913_j, l14, j17, l18);
-	        }
+            for(int i10 = 0; i10 < 1; i10++)
+            {
+                int l14 = k + field_913_j.nextInt(16) + 8;
+                int j17 = field_913_j.nextInt(128);
+                int l18 = l + field_913_j.nextInt(16) + 8;
+                (new OldGenCactus()).generate(field_907_p, field_913_j, l14, j17, l18);
+            }
         }
 
         for(int j10 = 0; j10 < 50; j10++)
@@ -623,10 +627,10 @@ public class ChunkGeneratorInfdev implements IChunkProvider
             (new OldGenLiquids(Blocks.flowing_lava)).generate(field_907_p, field_913_j, j15, l17, j19);
         }
 
-		SpawnerAnimals.performWorldGenSpawning(field_907_p, biomegenbase, k + 8, l + 8, 16, 16, field_913_j);
+        SpawnerAnimals.performWorldGenSpawning(field_907_p, biomegenbase, k + 8, l + 8, 16, 16, field_913_j);
         k += 8;
         l += 8;
-		
+
         for (int sn1 = 0; sn1 < 16; ++sn1)
         {
             for (int sn2 = 0; sn2 < 16; ++sn2)
@@ -645,9 +649,9 @@ public class ChunkGeneratorInfdev implements IChunkProvider
                 }
             }
         }
-		
+
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(ichunkprovider, field_907_p, field_913_j, i, j, false));
-        
+
         BlockSand.fallInstantly = false;
     }
 
@@ -655,7 +659,7 @@ public class ChunkGeneratorInfdev implements IChunkProvider
     {
         return true;
     }
-	
+
     public boolean unloadQueuedChunks()
     {
         return false;
@@ -675,13 +679,13 @@ public class ChunkGeneratorInfdev implements IChunkProvider
     {
         return "RandomLevelSource";
     }
-	
+
     public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
     {
         BiomeGenBase var5 = this.field_907_p.getBiomeGenForCoords(par2, par4);
         return var5 == null ? null : var5.getSpawnableList(par1EnumCreatureType);
     }
-	
+
     public ChunkPosition func_147416_a(World par1World, String par2Str, int par3, int par4, int par5)
     {
         return "Stronghold".equals(par2Str) && this.strongholdGenerator != null ? this.strongholdGenerator.func_151545_a(par1World, par3, par4, par5) : null;
@@ -695,11 +699,11 @@ public class ChunkGeneratorInfdev implements IChunkProvider
     public void saveExtraData() {}
 
     public void recreateStructures(int par1, int par2)
-    {        
-		if (mapFeaturesEnabled)
+    {
+        if (mapFeaturesEnabled)
         {
-			strongholdGenerator.func_151539_a(this, field_907_p, par1, par2, (Block[])null);
-			mineshaftGenerator.func_151539_a(this, field_907_p, par1, par2, (Block[])null);
-		}	
-	}
+            strongholdGenerator.func_151539_a(this, field_907_p, par1, par2, (Block[])null);
+            mineshaftGenerator.func_151539_a(this, field_907_p, par1, par2, (Block[])null);
+        }
+    }
 }
