@@ -46,6 +46,18 @@ public class GeneratorTypeAlpha11 extends GeneratorType
 				tooltip
 		));
 
+		// Generate Less Coal toggle button. ID: 22
+		gui.settings.add(new GuiSettingsButton(
+				new String[]{
+						StatCollector.translateToLocal("owg.setting.lesscoal") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+						StatCollector.translateToLocal("owg.setting.lesscoal") + ": " + StatCollector.translateToLocal("owg.setting.on")
+				},
+				new int[]{0, 1},
+				22, 90, gui.width,
+				-1, new int[0],
+				StatCollector.translateToLocal("owg.tooltip.lesscoal")
+		));
+
 		return true;
 	}
 

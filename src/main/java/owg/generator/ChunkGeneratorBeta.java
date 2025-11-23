@@ -252,10 +252,6 @@ public class ChunkGeneratorBeta implements IChunkProvider
                 {
                     BiomeGenBase biomegenbase = abiomegenbase[k + l * 16];
 
-                    // ADDED: Calculate noise per-coordinate for accuracy.
-                    double worldX = (double)(i * 16 + k);
-                    double worldZ = (double)(j * 16 + l);
-
                     boolean flag = sandNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 0.0D;
                     boolean flag1 = gravelNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 3D;
                     int i1 = (int)(stoneNoise[k + l * 16] / 3D + 3D + rand.nextDouble() * 0.25D);
@@ -633,12 +629,19 @@ public class ChunkGeneratorBeta implements IChunkProvider
                 (new OldGenMinable(Blocks.gravel, 32, 2)).generate(worldObj, rand, i6, j9, i12);
             }
 
+            // Determine coal vein size based on generator settings.
+            int coalVeinSize = 16;
+            if (GeneratorType.trySetting(6, 1) == 1) // Check for "Generate Less Coal"
+            {
+                coalVeinSize = 9;
+            }
+
             for(int i3 = 0; i3 < 20; i3++) //GOOD
             {
                 int j6 = k + rand.nextInt(16);
                 int k9 = rand.nextInt(128);
                 int j12 = l + rand.nextInt(16);
-                (new OldGenMinable(Blocks.coal_ore, 16, 2)).generate(worldObj, rand, j6, k9, j12);
+                (new OldGenMinable(Blocks.coal_ore, coalVeinSize, 2)).generate(worldObj, rand, j6, k9, j12);
             }
 
             for(int j3 = 0; j3 < 20; j3++) //GOOD

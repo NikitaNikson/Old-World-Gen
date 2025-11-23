@@ -61,6 +61,18 @@ public class GeneratorTypeAlpha12 extends GeneratorType
                 "Generates Strongholds and Mineshafts."
         ));
 
+        // Generate Less Coal toggle button. ID: 23
+        gui.settings.add(new GuiSettingsButton(
+                new String[]{
+                        StatCollector.translateToLocal("owg.setting.lesscoal") + ": " + StatCollector.translateToLocal("owg.setting.off"),
+                        StatCollector.translateToLocal("owg.setting.lesscoal") + ": " + StatCollector.translateToLocal("owg.setting.on")
+                },
+                new int[]{0, 1},
+                23, 110, gui.width,
+                -1, new int[0],
+                StatCollector.translateToLocal("owg.tooltip.lesscoal")
+        ));
+
         return true;
     }
 

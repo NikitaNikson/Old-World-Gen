@@ -31,6 +31,10 @@ owg.tooltip.newores.alpha11=For Alpha 1.1.0:\nLapis Lazuli, Emeralds
 owg.tooltip.newores.indev=For Indev:\nRedstone, Lapis Lazuli, Emeralds
 owg.tooltip.newores.infdev=For Infdev:\nRedstone, Lapis Lazuli, Emeralds
 
+# Less Coal Setting
+owg.setting.lesscoal=Generate Less Coal
+owg.tooltip.lesscoal=Reduces coal vein size by 40%.
+
 # Beta Coloring Setting
 owg.setting.betacolor=Beta Biome Colors
 owg.tooltip.betacolor.line1=Makes Grass/Leafs coloring more saturated.

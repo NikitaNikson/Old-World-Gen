@@ -440,12 +440,19 @@ public class ChunkGeneratorInfdev implements IChunkProvider
             (new OldGenMinable(Blocks.gravel, 32, 0)).generate(field_907_p, field_913_j, l4, i7, l11);
         }
 
+        // Determine coal vein size based on generator settings.
+        int coalVeinSize = 16;
+        if (GeneratorType.trySetting(2, 1) == 1) // Check for "Generate Less Coal"
+        {
+            coalVeinSize = 9;
+        }
+
         for(int j2 = 0; j2 < 20; j2++)
         {
             int i5 = k + field_913_j.nextInt(16);
             int j7 = field_913_j.nextInt(128);
             int i12 = l + field_913_j.nextInt(16);
-            (new OldGenMinable(Blocks.coal_ore, 16, 0)).generate(field_907_p, field_913_j, i5, j7, i12);
+            (new OldGenMinable(Blocks.coal_ore, coalVeinSize, 0)).generate(field_907_p, field_913_j, i5, j7, i12);
         }
 
         for(int k2 = 0; k2 < 20; k2++)
