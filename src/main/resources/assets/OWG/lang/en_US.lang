@@ -35,6 +35,10 @@ owg.tooltip.newores.infdev=For Infdev:\nRedstone, Lapis Lazuli, Emeralds
 owg.setting.lesscoal=Generate Less Coal
 owg.tooltip.lesscoal=Reduces coal vein size by 40%.
 
+# Fix Beaches Setting
+owg.setting.fixbeaches=Fix Beaches
+owg.tooltip.fixbeaches=Prevents small sand patches from generating on grass.\n§aTurn off for accurate Beta world generation.
+
 # Beta Coloring Setting
 owg.setting.betacolor=Beta Biome Colors
 owg.tooltip.betacolor.line1=Makes Grass/Leafs coloring more saturated.

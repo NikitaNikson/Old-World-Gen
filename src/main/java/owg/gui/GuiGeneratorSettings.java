@@ -125,9 +125,9 @@ public class GuiGeneratorSettings extends GuiScreen
 			this.drawString(this.fontRendererObj, translatedDrawStrings[1], this.width / 2 + 6, 40, 10526880);
 		}
 
-		this.drawString(this.fontRendererObj, "Server config: ", this.width / 2 - 155 + 1, 165, 16777215);
-		this.drawString(this.fontRendererObj, "level-type=OWG", this.width / 2 - 155 + 1, 182, 10526880);
-		this.drawString(this.fontRendererObj, "generator-settings=" + createString(), this.width / 2 - 155 + 1, 192, 10526880);
+		this.drawString(this.fontRendererObj, "Server config: ", this.width / 2 - 155 + 1, 185, 16777215);
+		this.drawString(this.fontRendererObj, "level-type=OWG", this.width / 2 - 155 + 1, 202, 10526880);
+		this.drawString(this.fontRendererObj, "generator-settings=" + createString(), this.width / 2 - 155 + 1, 212, 10526880);
 
 		// --- Manual button drawing loop ---
 		for (int i = 0; i < this.buttonList.size(); ++i)

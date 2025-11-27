@@ -110,6 +110,18 @@ public class GeneratorTypeBeta extends GeneratorType
                 StatCollector.translateToLocal("owg.tooltip.lesscoal")
         ));
 
+        // Fix Beaches toggle button. ID: 27
+        gui.settings.add(new GuiSettingsButton(
+                new String[]{
+                        StatCollector.translateToLocal("owg.setting.fixbeaches") + ": " + StatCollector.translateToLocal("owg.setting.on"),
+                        StatCollector.translateToLocal("owg.setting.fixbeaches") + ": " + StatCollector.translateToLocal("owg.setting.off")
+                },
+                new int[]{1, 0}, // 1 = On (Default), 0 = Off
+                27, 190, gui.width,
+                -1, new int[0],
+                StatCollector.translateToLocal("owg.tooltip.fixbeaches")
+        ));
+
         return true;
     }
 

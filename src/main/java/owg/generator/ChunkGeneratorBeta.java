@@ -242,19 +242,43 @@ public class ChunkGeneratorBeta implements IChunkProvider
         {
             byte byte0 = 64;
             double d = 0.03125D;
-            // REMOVED: Pre-calculation of noise arrays is no longer needed.
-            // sandNoise = field_909_n.generateNoiseOctaves(sandNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d, d, 1.0D);
-            // gravelNoise = field_909_n.generateNoiseOctaves(gravelNoise, i * 16, 109.0134D, j * 16, 16, 1, 16, d, 1.0D, d);
-            // stoneNoise = field_908_o.generateNoiseOctaves(stoneNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d * 2D, d * 2D, d * 2D);
+
+            // Check if the beach fix is disabled. If so, pre-calculate noise arrays.
+            boolean beachFix = GeneratorType.trySetting(7, 1) == 1;
+            if(!beachFix)
+            {
+                sandNoise = field_909_n.generateNoiseOctaves(sandNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d, d, 1.0D);
+                gravelNoise = field_909_n.generateNoiseOctaves(gravelNoise, i * 16, 109.0134D, j * 16, 16, 1, 16, d, 1.0D, d);
+                stoneNoise = field_908_o.generateNoiseOctaves(stoneNoise, i * 16, j * 16, 0.0D, 16, 16, 1, d * 2D, d * 2D, d * 2D);
+            }
+
             for(int k = 0; k < 16; k++)
             {
                 for(int l = 0; l < 16; l++)
                 {
                     BiomeGenBase biomegenbase = abiomegenbase[k + l * 16];
 
-                    boolean flag = sandNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 0.0D;
-                    boolean flag1 = gravelNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 3D;
-                    int i1 = (int)(stoneNoise[k + l * 16] / 3D + 3D + rand.nextDouble() * 0.25D);
+                    boolean flag; // sand
+                    boolean flag1; // gravel
+                    int i1; // stone depth
+
+                    if(beachFix)
+                    {
+                        // Calculate noise per-coordinate for accuracy (the fix).
+                        double worldX = (double)(i * 16 + k);
+                        double worldZ = (double)(j * 16 + l);
+                        flag = field_909_n.func_806_a(worldX * d, worldZ * d) + rand.nextDouble() * 0.2D > 0.0D;
+                        flag1 = field_909_n.func_806_a(worldZ * d, worldX * d) + rand.nextDouble() * 0.2D > 3.0D; // Swapped coords for gravel
+                        i1 = (int)(field_908_o.func_806_a(worldX * d * 2.0D, worldZ * d * 2.0D) / 3.0D + 3.0D + rand.nextDouble() * 0.25D);
+                    }
+                    else
+                    {
+                        // Use pre-calculated noise arrays (original mod behavior).
+                        flag = sandNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 0.0D;
+                        flag1 = gravelNoise[k + l * 16] + rand.nextDouble() * 0.20000000000000001D > 3D;
+                        i1 = (int)(stoneNoise[k + l * 16] / 3D + 3D + rand.nextDouble() * 0.25D);
+                    }
+
                     int j1 = -1;
                     Block byte1 = biomegenbase.topBlock;
                     Block byte2 = biomegenbase.fillerBlock;
