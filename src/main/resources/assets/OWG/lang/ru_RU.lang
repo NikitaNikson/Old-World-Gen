@@ -1,52 +1,68 @@
-generator.OWG=Old World Generator
+generator.OWG=Старая генерация мира
 
-gui.title=Настройки генератора
 gui.selectGenerator=Выберите генератор мира:
 gui.generatorSettings=Настройки генератора:
-gui.serverConfig=Конфигурация сервера:
-gui.copystring=Скопировать настройки генератора в буфер
+gui.copystring=Скопировать generator-settings в буфер обмена
 
 owg.setting.size=Размер
-owg.setting.small=Маленький
+owg.setting.small=Малый
 owg.setting.default=Обычный
-owg.setting.large=Большой
-owg.setting.snow=Снежный мир
-owg.setting.water=Вода
-owg.setting.on=Вкл.
-owg.setting.off=Откл.
+owg.setting.large=Крупный
+owg.setting.snow=Зимний мир
+owg.setting.water=Мир воды
+owg.setting.on=ВКЛ
+owg.setting.off=ВЫКЛ
 owg.setting.theme=Тема
 owg.setting.type=Тип
 owg.setting.layer=Слой
 owg.setting.dungeon=Подземелья
-owg.setting.cave=Пещеры
-owg.setting.stronghold=Крепости
-owg.setting.village=Деревни
-owg.setting.mineshaft=Шахты
-owg.setting.temple=Храмы
-owg.setting.ravine=Овраги
-owg.setting.ocean=Глубокий океан
-owg.setting.monument=Океанские Памятники
-owg.setting.end=Только портал края
+owg.setting.end=Только портал Края
+
+owg.setting.tallgrass=Высокая трава
+owg.tooltip.tallgrass=Отключает генерацию высокой травы.\n§aВысокая трава была добавлена в Beta 1.7.3
+owg.tooltip.snowworld=Генерирует мир, покрытый снегом и льдом.\n§aВключает постоянный снегопад.
+
+# Ores Setting
+owg.setting.newores=Генерировать новые руды
+owg.tooltip.newores.main=Включает руды из более новых версий.
+owg.tooltip.newores.beta=Для Beta 1.7.3:\nИзумруды
+owg.tooltip.newores.alpha12=Для Alpha 1.2.0:\nЛазурит, изумруды
+owg.tooltip.newores.alpha11=Для Alpha 1.1.0:\nЛазурит, изумруды
+owg.tooltip.newores.indev=Для Indev:\nРедстоун, лазурит, изумруды
+owg.tooltip.newores.infdev=Для Infdev:\nРедстоун, лазурит, изумруды
+
+# Less Coal Setting
+owg.setting.lesscoal=Меньше угля
+owg.tooltip.lesscoal=Уменьшает размер жил угля на 40%.
+
+# Fix Beaches Setting
+owg.setting.fixbeaches=Исправить пляжи
+owg.tooltip.fixbeaches=Предотвращает появление небольших кусков песка на дёрне.\n§aОтключите для точной генерации старых миров.
+
+# Beta Coloring Setting
+owg.setting.betacolor=Цвета биомов беты
+owg.tooltip.betacolor.line1=Делает окраску травы и листвы более насыщенной.
+owg.tooltip.betacolor.line2=Может вызвать визуальные артефакты на границах биомов.
 
 owg.biomes.biomes=Биомы
-owg.biomes.original=оригинальный
-owg.biomes.vanilla=ванильный
-owg.biomes.all=ванильный + моды
+owg.biomes.original=Оригинальные
+owg.biomes.vanilla=Ванильные
+owg.biomes.all=Ванильные + моды
 
-owg.theme.default=Обычная
-owg.theme.snow=Снежная
+owg.theme.default=По умолчанию
+owg.theme.snow=Снег
 owg.theme.jungle=Джунгли
-owg.theme.tropical=Тропическая
-owg.theme.paradise=Райская
-owg.theme.hell=Адская
-owg.theme.woods=Лесная
+owg.theme.tropical=Тропики
+owg.theme.paradise=Рай
+owg.theme.hell=Ад
+owg.theme.woods=Лес
 
 owg.type.island=Остров
-owg.type.floating=Летающий
-owg.type.inland=Остров
+owg.type.floating=Парящий
+owg.type.inland=Континентальный
 
-owg.BETA173=Бета 1.7.3
-owg.ALPHA12=Альфа 1.2.0
-owg.ALPHA11=Альфа 1.1.0
-owg.INFDEV=Инфдев
-owg.INDEV=Индев
+owg.BETA173=Beta 1.7.3
+owg.ALPHA12=Alpha 1.2.0
+owg.ALPHA11=Alpha 1.1.0
+owg.INFDEV=Infdev
+owg.INDEV=Indev
